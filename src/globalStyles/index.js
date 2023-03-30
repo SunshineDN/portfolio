@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-family: 'Montserrat', sans-serif;
+        scroll-behavior: smooth;
     }
     a {
         text-decoration: none;
