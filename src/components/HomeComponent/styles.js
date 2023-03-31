@@ -1,13 +1,5 @@
 import styled from 'styled-components';
 
-export const HomeContainer = styled.div`
-    display: flex;
-    margin-top: 80px;
-    justify-content: space-around;
-    width: 100%;
-    flex-wrap: wrap;
-`;
-
 export const HomeFirstParagraph = styled.p`
     font-size: 16px;
     font-weight: 600;
@@ -16,21 +8,50 @@ export const HomeFirstParagraph = styled.p`
     padding: 0;
 `;
 
-export const HomeTitle = styled.h1`
-    font-size: 6em;
+export const HomeTitle = styled.div`
+    position: relative;
+    left: -10px;
+    font-size: 4em;
     font-weight: 600;
     color: ${({ theme }) => theme.color};
+    z-index: 1 !important;
 
-    @media (max-width: 768px) {
-        font-size: 1.5em;
+    & .Typewriter {
+        position: relative !important;
+        z-index: -1 !important;
     }
 
-    @media (max-width: 480px) {
-        font-size: 1em;
-    }
+    & .Typewriter__cursor {
+        z-index: 1 !important;
 
-    @media (max-width: 320px) {
-        font-size: 0.8em;
+        &::after {
+        content: '';
+        position: absolute;
+        height: 50px;
+        width: 6px;
+        background-color: ${({ theme }) => theme.color};
+        margin-top: 20px;
+        animation: blink 1s linear infinite;
+        border-radius: 5px;
+        z-index: 1 !important;
+
+        @keyframes blink {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 953px) {
+            height: 30px;
+            margin-top: 6.5px;
+            width: 3px;
+        }
     }
 `;
 
@@ -59,13 +80,6 @@ export const HomeButton = styled.button`
     }
 `;
 
-export const HomeImage = styled.img`
-    width: 100%;
-    height: 100%;
-    margin: 1em 0;
-    z-index: 10;
-`;
-
 export const HomeTextContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -73,4 +87,48 @@ export const HomeTextContainer = styled.div`
     justify-content: center;
     width: 50%;
     margin: 1em 0;
+`;
+
+export const HomeContainer = styled.div`
+    display: flex;
+    margin-top: 80px;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+    z-index: 1 !important;
+
+    @media (max-width: 953px) {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 1em;
+
+        & > svg {
+            width: 50% !important;
+            height: 50% !important;
+            margin: 0;
+        }
+
+        & > ${HomeTextContainer} {
+            width: 50%;
+            margin: 1em 0;
+        }
+
+        & > ${HomeTextContainer} > ${HomeTitle} {
+            font-size: 2em;
+            left: -2px;
+        }
+
+        & > ${HomeTextContainer} > ${HomeFirstParagraph} {
+            font-size: .8em;
+        }
+
+        & > ${HomeTextContainer} > ${HomeSecondParagraph} {
+            font-size: .8em;
+        }
+
+        & > ${HomeTextContainer} > ${HomeButton} {
+            font-size: .8em;
+            padding: 0.3em 0.8em;
+        }
+
 `;

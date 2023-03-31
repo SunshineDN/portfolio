@@ -20,8 +20,8 @@ export default function App() {
   return (
     <ThemeProvider theme={themes[theme]}>
 
+      <Header handleTheme={handleTheme} theme={themes[theme]} />
       <Section id='home'>
-        <Header handleTheme={handleTheme} theme={themes[theme]} />
         <HomeComponent />
       </Section>
 

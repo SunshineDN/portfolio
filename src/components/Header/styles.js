@@ -1,13 +1,5 @@
 import styled from 'styled-components';
 
-export const HeaderContainer = styled.div`
-  width: 80%;
-  height: 62px;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-`;
-
 export const LogoContainer = styled.div`
   height: 100%;
   display: flex;
@@ -17,8 +9,8 @@ export const LogoContainer = styled.div`
   cursor: pointer;
 
   & > svg {
-    height: 72px;
-    width: 72px;
+    height: 100%;
+    width: 100%;
     object-fit: contain;
   }
 
@@ -81,5 +73,52 @@ export const NavItem = styled.li`
   & > a:hover:after {
     transform: scaleX(1);
     transform-origin: left;
+  }
+`;
+
+export const HeaderContainer = styled.div`
+  width: 100%;
+  height: 62px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 100 !important;
+
+  @media (max-width: 953px) {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 1em;
+
+    & > ${LogoContainer} > h1 {
+      font-size: .8em;
+    }
+
+    & > ${LogoContainer} > svg {
+      height: 50%;
+      width: 50%;
+    }
+      
+
+    & > ${NavContainer} > ul {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 60vw;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      background-color: ${({theme}) => theme.secondary};
+    }
+
+    & > ${NavContainer} > ul > li {
+      padding: 10px;
+      height: 5%;
+    }
+
+    & > ${NavContainer} > ul > li > a {
+      font-size: .8em;
+    }
+
   }
 `;
