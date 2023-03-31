@@ -4,10 +4,12 @@ import { useState } from 'react';
 
 import { themes } from './globalStyles';
 import Header from './components/Header';
+import HomeComponent from './components/HomeComponent';
+import { Section } from './AppStyles';
 
 export default function App() {
   const [theme, setTheme] = useState(
-    localStorage.getItem('theme') || 'dark'
+    localStorage.getItem('theme') || localStorage.setItem('theme', 'dark')
   );
 
   function handleTheme() {
@@ -18,29 +20,30 @@ export default function App() {
   return (
     <ThemeProvider theme={themes[theme]}>
 
-      <section id='home' style={{backgroundColor: themes[theme].background, paddingTop: '30px', height: '100vh'}}>
+      <Section id='home'>
         <Header handleTheme={handleTheme} theme={themes[theme]} />
-      </section>
+        <HomeComponent />
+      </Section>
 
-      <section id='about' style={{backgroundColor: themes[theme].background, height: '100vh'}}>
+      <Section id='about'>
         <h1 style={{color: themes[theme].color}}>SOBRE MIM</h1>
-      </section>
+      </Section>
 
-      <section id='skills' style={{backgroundColor: themes[theme].background, height: '100vh'}}>
+      <Section id='skills'>
         <h1 style={{color: themes[theme].color}}>SKILLS</h1>
-      </section>
+      </Section>
 
-      <section id='projects' style={{backgroundColor: themes[theme].background, height: '100vh'}}>
+      <Section id='projects'>
         <h1 style={{color: themes[theme].color}}>PROJETOS</h1>
-      </section>
+      </Section>
 
-      <section id='services' style={{backgroundColor: themes[theme].background, height: '100vh'}}>
+      <Section id='services'>
         <h1 style={{color: themes[theme].color}}>SERVIÇOS</h1>
-      </section>
+      </Section>
 
-      <section id='contact' style={{backgroundColor: themes[theme].background, height: '100vh'}}>
+      <Section id='contact'>
         <h1 style={{color: themes[theme].color}}>CONTATO</h1>
-      </section>
+      </Section>
 
     </ThemeProvider>
   );
