@@ -143,6 +143,7 @@ export const HeaderContainer = styled.div`
       align-items: flex-start;
       background-color: ${({theme}) => theme.secondary};
       padding: 40px 0 0 10px;
+      gap: 20px;
     }
 
     & > ${NavContainer} > ul > li {
@@ -151,7 +152,7 @@ export const HeaderContainer = styled.div`
     }
 
     & > ${NavContainer} > ul > li > a {
-      font-size: 1.2em;
+      font-size: 1.5em;
     }
   }
 
@@ -159,11 +160,27 @@ export const HeaderContainer = styled.div`
     & > ${NavContainer} > ul {
       left: ${({open}) => open ? '65vw' : '110vw'};
     }
+
+    & > ${LogoContainer} > h1 {
+      font-size: 1.2em;
+    }
+
+    & > ${NavContainer} > ul > li > a {
+      font-size: 1.2em;
+    }
   }
 
   @media (max-width: 700px) {
     & > ${NavContainer} > ul {
       left: ${({open}) => open ? '60vw' : '110vw'};
+    }
+
+    & > ${LogoContainer} > h1 {
+      font-size: 1.1em;
+    }
+
+    & > ${NavContainer} > ul > li > a {
+      font-size: 1.1em;
     }
   }
 
@@ -207,11 +224,11 @@ export const HeaderContainer = styled.div`
     }
 
     & > ${LogoContainer} > h1 {
-      font-size: .8em;
+      font-size: .7em;
     }
 
     & > ${NavContainer} > ul > li > a {
-      font-size: .8em;
+      font-size: .7em;
     }
   }
 
