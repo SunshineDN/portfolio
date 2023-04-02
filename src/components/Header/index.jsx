@@ -11,6 +11,8 @@ import {
   NavContainer,
   NavList,
   NavItem,
+  NavMenu,
+  NavClose,
 } from './styles';
 
 export default function Header({ handleTheme, theme }) {
@@ -18,13 +20,19 @@ export default function Header({ handleTheme, theme }) {
     localStorage.getItem('theme') === 'dark'
   );
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  function handleOpen() {
+    setIsOpen(!isOpen);
+  }
+
   function handleChange() {
     setIsChecked(!isChecked);
     handleTheme();
   }
 
   return (
-    <HeaderContainer>
+    <HeaderContainer open={isOpen}>
       <LogoContainer onClick={
         () => {
           window.open('https://instagram.com/doug.cabral01', '_blank');
@@ -76,6 +84,11 @@ export default function Header({ handleTheme, theme }) {
           </NavItem>
         </NavList>
       </NavContainer>
+      {isOpen ? 
+        <NavClose onClick={() => handleOpen()} />
+      : 
+        <NavMenu onClick={() => handleOpen()} />
+      }
     </HeaderContainer>
   );
 }

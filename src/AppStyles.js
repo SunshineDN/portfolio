@@ -19,11 +19,25 @@ export const Section = styled.section`
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-        background-attachment: fixed;
         z-index: -1;
 
         @media (max-width: 953px) {
             background-position: 0 0;
+        }
+
+        @media (max-width: 768px) {
+        }
+
+        @media (max-width: 700px) {
+        }
+
+        @media (max-width: 600px) {
+        }
+
+        @media (max-width: 425px) {
+        }
+
+        @media (max-width: 375px) {
         }
     }
 `;

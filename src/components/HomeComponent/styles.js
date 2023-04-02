@@ -30,7 +30,7 @@ export const HomeTitle = styled.div`
         height: 50px;
         width: 6px;
         background-color: ${({ theme }) => theme.color};
-        margin-top: 20px;
+        margin-top: 15px;
         animation: blink 1s linear infinite;
         border-radius: 5px;
         z-index: 1 !important;
@@ -91,7 +91,7 @@ export const HomeTextContainer = styled.div`
 
 export const HomeContainer = styled.div`
     display: flex;
-    margin-top: 80px;
+    margin-top: 100px;
     justify-content: space-around;
     width: 100%;
     flex-wrap: wrap;
@@ -130,5 +130,21 @@ export const HomeContainer = styled.div`
             font-size: .8em;
             padding: 0.3em 0.8em;
         }
+    }
 
+    @media (max-width: 768px) {
+    }
+
+    @media (max-width: 700px) {
+        
+    }
+
+    @media (max-width: 600px) {
+    }
+
+    @media (max-width: 425px) {
+    }
+
+    @media (max-width: 375px) {
+    }
 `;
