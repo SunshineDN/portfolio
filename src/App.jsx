@@ -12,6 +12,12 @@ export default function App() {
     localStorage.getItem('theme') || localStorage.setItem('theme', 'dark')
   );
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  function handleOpen() {
+    setIsOpen(!isOpen);
+  };
+
   function handleTheme() {
     setTheme(theme === 'dark' ? 'light' : 'dark');
     localStorage.setItem('theme', theme === 'dark' ? 'light' : 'dark');
@@ -20,7 +26,7 @@ export default function App() {
   return (
     <ThemeProvider theme={themes[theme]}>
 
-      <Header handleTheme={handleTheme} theme={themes[theme]} />
+      <Header handleTheme={handleTheme} isOpen={isOpen} handleOpen={handleOpen} theme={themes[theme]} />
       <Section id='home'>
         <HomeComponent />
       </Section>

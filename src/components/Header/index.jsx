@@ -15,15 +15,13 @@ import {
   NavClose,
 } from './styles';
 
-export default function Header({ handleTheme, theme }) {
+export default function Header({ handleTheme, handleOpen, theme, isOpen }) {
   const [isChecked, setIsChecked] = useState(
     localStorage.getItem('theme') === 'dark'
   );
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  function handleOpen() {
-    setIsOpen(!isOpen);
+  function handleChangeOpen() {
+    handleOpen();
   }
 
   function handleChange() {
@@ -85,9 +83,9 @@ export default function Header({ handleTheme, theme }) {
         </NavList>
       </NavContainer>
       {isOpen ? 
-        <NavClose onClick={() => handleOpen()} />
+        <NavClose onClick={() => handleChangeOpen()} />
       : 
-        <NavMenu onClick={() => handleOpen()} />
+        <NavMenu onClick={() => handleChangeOpen()} />
       }
     </HeaderContainer>
   );

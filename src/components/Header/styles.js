@@ -37,10 +37,10 @@ export const NavContainer = styled.nav`
 
 export const NavMenu = styled(BiMenuAltRight)`
   display: none;
-  position: absolute;
-  top: 25%;
+  position: fixed;
+  top: 5%;
   right: 15px;
-  height: 50%;
+  height: 4%;
   width: auto;
   object-fit: contain;
   cursor: pointer;
@@ -49,10 +49,10 @@ export const NavMenu = styled(BiMenuAltRight)`
 
 export const NavClose = styled(IoClose)`
   display: none;
-  position: absolute;
-  top: 25%;
+  position: fixed;
+  top: 5%;
   right: 15px;
-  height: 50%;
+  height: 4%;
   width: auto;
   object-fit: contain;
   cursor: pointer;
@@ -117,7 +117,7 @@ export const HeaderContainer = styled.div`
     justify-content: center;
 
     & > ${LogoContainer} > h1 {
-      font-size: 1.5em;
+      font-size: 1.3em;
     }
 
     & > ${LogoContainer} > svg {
@@ -143,7 +143,7 @@ export const HeaderContainer = styled.div`
       align-items: flex-start;
       background-color: ${({theme}) => theme.secondary};
       padding: 40px 0 0 10px;
-      gap: 20px;
+      gap: 5%;
     }
 
     & > ${NavContainer} > ul > li {
@@ -152,13 +152,19 @@ export const HeaderContainer = styled.div`
     }
 
     & > ${NavContainer} > ul > li > a {
-      font-size: 1.5em;
+      font-size: 1.3em;
+      color: ${({theme}) => theme.headerColorFont || theme.color};
+
+      &::after {
+        background-color: ${({theme}) => theme.headerColorFont || theme.color};
+      }
     }
   }
 
   @media (max-width: 768px) {
     & > ${NavContainer} > ul {
       left: ${({open}) => open ? '65vw' : '110vw'};
+      gap: 4.5%;
     }
 
     & > ${LogoContainer} > h1 {
@@ -173,6 +179,7 @@ export const HeaderContainer = styled.div`
   @media (max-width: 700px) {
     & > ${NavContainer} > ul {
       left: ${({open}) => open ? '60vw' : '110vw'};
+      gap: 4%;
     }
 
     & > ${LogoContainer} > h1 {
@@ -187,6 +194,7 @@ export const HeaderContainer = styled.div`
   @media (max-width: 600px) {
     & > ${NavContainer} > ul {
       left: ${({open}) => open ? '55vw' : '110vw'};
+      gap: 3.5%;
     }
 
     & > ${LogoContainer} > h1 {
@@ -201,12 +209,14 @@ export const HeaderContainer = styled.div`
   @media (max-width: 500px) {
     & > ${NavContainer} > ul {
       left: ${({open}) => open ? '50vw' : '110vw'};
+      gap: 3%;
     }
   }
 
   @media (max-width: 425px) {
     & > ${NavContainer} > ul {
       left: ${({open}) => open ? '50vw' : '110vw'};
+      gap: 2.5%;
     }
 
     & > ${LogoContainer} > h1 {
@@ -221,14 +231,6 @@ export const HeaderContainer = styled.div`
   @media (max-width: 375px) {
     & > ${NavContainer} > ul {
       left: ${({open}) => open ? '43vw' : '110vw'};
-    }
-
-    & > ${LogoContainer} > h1 {
-      font-size: .7em;
-    }
-
-    & > ${NavContainer} > ul > li > a {
-      font-size: .7em;
     }
   }
 

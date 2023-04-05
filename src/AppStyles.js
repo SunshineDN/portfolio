@@ -19,6 +19,7 @@ export const Section = styled.section`
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+        opacity: ${({theme}) => theme.BGopacity};
         z-index: -1;
 
         @media (max-width: 953px) {
